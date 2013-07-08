@@ -17,17 +17,18 @@
     <% count = 1 %>
     <% @employees.each do |employee| %>
       <tr>
-        <% if employee.subordinates.count > 1 %>
+        <% #if employee.subordinates.count > 0 %>
              <td><%=count %>.</td>
              <td><%= link_to employee.name, employee %></td>
              <td><%= employee.city.name %></td>
              <td><%=employee.subordinates.count%></td>
              
              <%count+=1%>
-        <% end %>
+        <% #end %>
         
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= will_paginate @employees %>
