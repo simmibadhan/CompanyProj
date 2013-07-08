@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<h1>Employee Details</h1>
+
+<p>
+  <strong>Id - </strong>
+  <%= @employee.id %>
+</p>
+
+<p>
+  <strong>Name - </strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>City - </strong>
+  <%= @employee.city.name %>
+</p>
+
+<p>
+	<strong>Sub-ordinates - </strong>
+	<%= @employee.subordinates.count %>
+
+<table>
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Name</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% count = 1 %>
+    <% @employee.subordinates.each do |sub| %>
+      <tr>
+      	  <td><%=count%>
+          <td><%= sub.name %></td>
+          <td><%= sub.city.name %></td>
+          <%count+=1%>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Managers List', managers_path %> |
+<%= link_to 'Edit Employee', edit_employee_path(@employee) %> |
+<%= link_to 'Back to Employees List', employees_path %>
