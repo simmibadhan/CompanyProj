@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130708045032) do
+ActiveRecord::Schema.define(version: 20130709045522) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20130708045032) do
     t.string   "manager_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "willing_to_relocate", default: false
   end
 
 end

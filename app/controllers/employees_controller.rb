@@ -4,14 +4,18 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    @employees = Employee.paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
   end
-
+  
+  # GET /relocation_requests
+  def relocation_requests
+    @employees = Employee.where(willing_to_relocate: true)
+  end
   # GET /employees/new
   def new
     @employee = Employee.new
@@ -25,7 +29,6 @@ class EmployeesController < ApplicationController
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
-
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
@@ -69,6 +72,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :city_id, :manager_id)
+      params.require(:employee).permit(:name, :city_id, :manager_id, :willing_to_relocate)
     end
 end

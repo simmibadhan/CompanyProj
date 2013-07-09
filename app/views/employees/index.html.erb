@@ -25,7 +25,8 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @employees %>
 
 <br>
-
+<%= link_to 'Home', welcome_index_path %> |
 <%= link_to 'New Employee', new_employee_path %>

@@ -1,9 +1,14 @@
-<h1>Listing cities</h1>
+<h1>Cities</h1>
 
+<p><strong>Cities:</strong>
+  <%= @cities.count %>
+</p>
 <table>
   <thead>
     <tr>
+      <th>Sr.No.</th>
       <th>Name</th>
+      <th>Employees</th>
       <th></th>
       <th></th>
       <th></th>
@@ -11,9 +16,11 @@
   </thead>
 
   <tbody>
-    <% @cities.each do |city| %>
+    <% @cities.each_with_index do |city,index| %>
       <tr>
-        <td><%= city.name %></td>
+        <td><%=index+1%></td>
+        <td><%=link_to city.name, city %></td>
+        <td><%=city.employees.count%></td>
         <td><%= link_to 'Show', city %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>
         <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,5 +30,5 @@
 </table>
 
 <br>
-
+<%= link_to 'Home', welcome_index_path %> |
 <%= link_to 'New City', new_city_path %>

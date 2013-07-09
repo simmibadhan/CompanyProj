@@ -17,11 +17,16 @@
   </div>
   <div class="field">
     <%= f.label :city_id %><br>
-    <%= f.text_field :city_id %>
+    <%= f.select :city_id, City.all.collect {|city| [ city.name, city.id ] } %>
+  </div>
+<%= options_from_collection_for_select(City.all, :id, :name) %>
+  <div class="field">
+    <%= f.label "Manager id" %><br>
+    <%= f.text_field :manager_id %>
   </div>
   <div class="field">
-    <%= f.label :manager_id %><br>
-    <%= f.text_field :manager_id %>
+    <%= f.check_box(:willing_to_relocate) %>
+    <%= f.label(:willing_to_relocate, "I am willing to relocate") %>
   </div>
   <div class="actions">
     <%= f.submit %>

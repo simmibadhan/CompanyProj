@@ -1,9 +1,18 @@
 CompanyProj::Application.routes.draw do
-  resources :employees
+  get "welcome/index"
+  resources :employees do
+    collection do
+      get 'relocation_requests'
+    end
+  end
+
+  # match 'employees/relocation_requests' => 'employees#relocationrequests', via: [:get, :post]
 
   resources :cities
 
   resources :managers
+
+  root to: "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
