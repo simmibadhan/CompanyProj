@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <h1>Employee Details</h1>
 
+<%= image_tag @employee.photo.url(:thumb) %>
+
 <p>
   <strong>Id - </strong>
   <%= @employee.id %>

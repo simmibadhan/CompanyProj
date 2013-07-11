@@ -14,7 +14,7 @@ class EmployeesController < ApplicationController
   
   # GET /relocation_requests
   def relocation_requests
-    @employees = Employee.where(willing_to_relocate: true)
+    @employees = Employee.where(willing_to_relocate: true).paginate(:per_page => 10, :page => params[:page])
   end
   # GET /employees/new
   def new
@@ -72,6 +72,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :city_id, :manager_id, :willing_to_relocate)
+      params.require(:employee).permit(:name, :city_id, :manager_id, :willing_to_relocate, :photo)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130709045522) do
+ActiveRecord::Schema.define(version: 20130710064528) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20130709045522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "willing_to_relocate", default: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

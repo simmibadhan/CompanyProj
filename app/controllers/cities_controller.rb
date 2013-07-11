@@ -4,13 +4,12 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = City.paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /cities/1
   # GET /cities/1.json
   def show
-  #  @cities = City.all
   end
 
   # GET /cities/new
@@ -60,6 +59,11 @@ class CitiesController < ApplicationController
       format.html { redirect_to cities_url }
       format.json { head :no_content }
     end
+  end
+
+  #parameter to find number of employees in a city to see if new employee can be relocated to this city or not
+  def relocation_status
+    @count = City.find(params[:id]).employees.count
   end
 
   private

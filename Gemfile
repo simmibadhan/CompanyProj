@@ -36,6 +36,9 @@ gem 'faker'
 
 gem 'will_paginate'
 
+gem 'paperclip'
+gem 'rmagick'
+
 gem 'debugger', group: [:development]
 
 # Use ActiveModel has_secure_password

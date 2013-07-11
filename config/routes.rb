@@ -6,7 +6,7 @@ CompanyProj::Application.routes.draw do
     end
   end
 
-  # match 'employees/relocation_requests' => 'employees#relocationrequests', via: [:get, :post]
+  match '/relocation_status' => 'cities#relocation_status', via: ['get']
 
   resources :cities
 

@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function check_relocation_status(){
+	var city_id = $("#employee_city_id").val();
+	$.ajax({
+		url: "/relocation_status",
+		data:{id: city_id},
+		type: "get",
+		dataType: "script",
+		success: function(){
+     
+		},
+		error: function(){
+
+		}
+	})
+}
